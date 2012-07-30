@@ -12,8 +12,18 @@
     <ui:composition template="/templates/wizardTemplate.xhtml">
 
         <ui:define name="content">
-            <p:panel header="Calcul de la matiere avec les chants vus" style="margin: 5px">
+            <p:panel header="Calcul de la matière avec les chants vus" style="margin: 5px">
                 <h:form prependId="false">
+                    <h:panelGrid columns="2">
+                        <h:outputLabel for="name" value="Nom de la matière :" />
+                        <h:selectOneListbox id="name" />
+
+                        <h:outputLabel for="number" value="Nombre de plaques à produire :" />
+                        <h:inputText id="number" />
+
+                        <h:outputLabel for="m2" value="Calcul de leur surface en m2 :" />
+                        <h:inputText id="m2" />
+                    </h:panelGrid>
                 </h:form>
             </p:panel>
             <h:form prependId="false" style="margin: 5px">
