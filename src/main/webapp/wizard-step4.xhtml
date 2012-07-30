@@ -13,22 +13,20 @@
 
         <ui:define name="content">
 
-            <p:panel header="Calcul de la matière avec les chants vus" style="margin: 5px">
+            <p:panel header="Eventuels frais" style="margin: 5px">
                 <h:form prependId="false">
                     <h:panelGrid columns="2">
-                        <h:outputLabel for="name" value="Nom de la matière :" />
-                        <h:selectOneListbox id="name" />
+                        <h:outputLabel for="item1" value="Prise de mesure :" />
+                        <h:selectOneListbox id="item1" />
 
-                        <h:outputLabel for="number" value="Nombre de plaques à produire :" />
-                        <h:inputText id="number" />
-
-                        <h:outputLabel for="m2" value="Calcul de leur surface en m2 :" />
-                        <h:inputText id="m2" />
+                        <h:outputLabel for="item2" value="Emballage sur palette (cas ou Centre Marbres n'effectue pas le transport) :" />
+                        <h:selectOneListbox id="item2" />
                     </h:panelGrid>
                 </h:form>
             </p:panel>
             <h:form prependId="false" style="margin: 5px">
-                <h:commandButton value="Next" action="wizard-step2" />
+                <h:commandButton value="Back" action="wizard-step3" />
+                <h:commandButton value="Next" action="wizard-step5" />
             </h:form>
         </ui:define>
 

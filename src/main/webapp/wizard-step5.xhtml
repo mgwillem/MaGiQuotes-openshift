@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<body>
+
+<h:body>
+    <ui:composition template="/templates/wizardTemplate.xhtml">
+
+        <ui:define name="content">
+
+            <p:panel header="Calcul de pose" style="margin: 5px">
+                <h:form prependId="false">
+                    <h:panelGrid columns="2">
+                        <h:outputLabel for="item1" value="Pose pour plan de travail profondeur max 70 cm droite, longueur inférieur ou égale à 3,5 ml :" />
+                        <h:selectBooleanCheckbox id="item1" />
+
+                        <h:outputLabel for="item2" value="Pose pour une cuisine profondeur max 70 cm avec coin, longueur inférieur ou égal à 3,5 ml :" />
+                        <h:selectOneListbox id="item2" />
+
+                        <h:outputLabel for="item3" value="Pose pour une cuisine profondeur max 70 cm droite, longueur entre 3,51 ml jusqu'à 6 ml :" />
+                        <h:selectOneListbox id="item3" />
+
+                        <h:outputLabel for="item4" value="Pose pour une cuisine profondeur max 70 avec coin, longueur entre 3,51 ml jusqu'à 6 ml :" />
+                        <h:selectOneListbox id="item4" />
+                    </h:panelGrid>
+                </h:form>
+            </p:panel>
+            <h:form prependId="false" style="margin: 5px">
+                <h:commandButton value="Back" action="wizard-step4" />
+                <h:commandButton value="Finished!" />
+            </h:form>
+        </ui:define>
+
+    </ui:composition>
+</h:body>
+
+</body>
+</html>
