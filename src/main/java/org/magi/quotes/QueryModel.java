@@ -3,6 +3,7 @@ package org.magi.quotes;
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -52,6 +53,24 @@ public class QueryModel implements Serializable {
         }
 
         return null;
+    }
+
+    public void dump() {
+        dump(model);
+    }
+
+    private void dump(List<Query> queries) {
+        for (Query query : queries) {
+            if (query.getParent() == null) {
+                System.out.println(query.getProduct().getDescription());
+                dump(query.getQueries());
+                return;
+            }
+
+            if (query.getSelectedProduct() != null) System.out.println(">>" + query.getProduct().getDescription() + " " + query.getSelectedProduct());
+            if (query.getSelectedInteger() != null) System.out.println(">>" + query.getProduct().getDescription() + " " + query.getSelectedInteger());
+            if (query.getSelectedDecimal() != null && query.getSelectedDecimal() != BigDecimal.ZERO) System.out.println(">>" + query.getProduct().getDescription() + " " + query.getSelectedDecimal());
+        }
     }
 
     @Override
