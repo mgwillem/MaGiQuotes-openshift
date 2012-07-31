@@ -60,6 +60,10 @@ public enum Product {
         return priceType;
     }
 
+    public Product[] getProducts() {
+        return products;
+    }
+
     @Override
     public String toString() {
         return "Product{" +

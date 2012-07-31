@@ -17,10 +17,14 @@
                 <h:form prependId="false">
                     <h:panelGrid columns="2">
                         <h:outputLabel for="name" value="#{queryModelFactory.model.getQuery('Q1_CATEG_1').product.description} :" />
-                        <h:selectOneListbox id="name" />
+                        <h:selectOneMenu id="name" >
+                            <f:selectItems value="#{wizardStep1.productNameList}" />
+                        </h:selectOneMenu>
 
                         <h:outputLabel for="number" value="#{queryModelFactory.model.getQuery('Q2_CATEG_1').product.description} :" />
-                        <h:inputText id="number" />
+                        <h:selectOneMenu id="number" >
+                            <f:selectItems value="#{wizardStep1.range}" />
+                        </h:selectOneMenu>
 
                         <h:outputLabel for="m2" value="#{queryModelFactory.model.getQuery('Q3_CATEG_1').product.description} :" />
                         <h:inputText id="m2" />

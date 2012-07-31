@@ -54,7 +54,6 @@ public class QueryModel implements Serializable {
         return null;
     }
 
-
     @Override
     public String toString() {
         return "QueryModel{" +
