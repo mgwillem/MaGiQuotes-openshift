@@ -16,13 +16,13 @@
             <p:panel header="Calcul de la matière avec les chants vus" style="margin: 5px">
                 <h:form prependId="false">
                     <h:panelGrid columns="2">
-                        <h:outputLabel for="name" value="Nom de la matière :" />
+                        <h:outputLabel for="name" value="#{queryModelFactory.model.getQuery('Q1_CATEG_1').product.description} :" />
                         <h:selectOneListbox id="name" />
 
-                        <h:outputLabel for="number" value="Nombre de plaques à produire :" />
+                        <h:outputLabel for="number" value="#{queryModelFactory.model.getQuery('Q2_CATEG_1').product.description} :" />
                         <h:inputText id="number" />
 
-                        <h:outputLabel for="m2" value="Calcul de leur surface en m2 :" />
+                        <h:outputLabel for="m2" value="#{queryModelFactory.model.getQuery('Q3_CATEG_1').product.description} :" />
                         <h:inputText id="m2" />
                     </h:panelGrid>
                 </h:form>
