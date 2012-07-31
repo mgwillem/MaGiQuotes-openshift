@@ -4,22 +4,24 @@ import org.magi.quotes.QueryModel;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * @author <a href="mailto:mgw@mmx.lu">Marc Gabriel-Willem</a>
  */
 @Named
-@ApplicationScoped
-public class QueryModelFactory {
+@SessionScoped
+public class QueryModelFactory implements Serializable {
 
     private QueryModel queryModel;
 
     @PostConstruct
-    public QueryModel createQueryModel() {
+    private QueryModel createQueryModel() {
 
         queryModel = new QueryModel();
         queryModel.init();
@@ -29,7 +31,6 @@ public class QueryModelFactory {
         queryModel.add(new Query("Q1_CATEG_1", qCateg1, Product.CAT1_Q1, QueryType.ONE));
         queryModel.add(new Query("Q2_CATEG_1", qCateg1, Product.CAT1_Q2, QueryType.ONE));
         queryModel.add(new Query("Q3_CATEG_1", qCateg1, Product.CAT1_Q3, QueryType.ONE));
-
 
         Query qCateg2 = null;
         queryModel.add(qCateg2 = new Query("Q_CATEG_2", Product.CAT2, QueryType.MULTIPLE));

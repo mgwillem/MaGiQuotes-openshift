@@ -1,12 +1,13 @@
 package org.magi.quotes;
 
 import javax.inject.Named;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * @author <a href="mailto:mgw@mmx.lu">Marc Gabriel-Willem</a>
  */
-public enum Product {
+public enum Product implements Serializable {
 
     CAT1("Calcul de la matière avec les chants vus"),
 
@@ -16,7 +17,7 @@ public enum Product {
 
     CAT1_Q1("Nom de la matière", BigDecimal.TEN, PriceType.PC, new Product[]{CAT1_Q1_1, CAT1_Q1_2, CAT1_Q1_3}),
     CAT1_Q2("Nombre de plaques à produire", BigDecimal.TEN, PriceType.PC),
-    CAT1_Q3("Calcul de leur surface en m2", BigDecimal.TEN, PriceType.M2),
+    CAT1_Q3("Surface en m2", BigDecimal.TEN, PriceType.M2),
 
     CAT2("Calcul des découpes"),
     CAT2_Q1("Découpe évier rectangulaire non façonnée", BigDecimal.ONE, PriceType.PC),

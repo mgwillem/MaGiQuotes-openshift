@@ -13,8 +13,8 @@
 
         <ui:define name="content">
 
-            <p:panel header="Calcul des découpes" style="margin: 5px">
-                <h:form prependId="false">
+            <h:form prependId="false">
+                <p:panel header="Calcul des découpes" style="margin: 5px">
                     <h:panelGrid columns="2">
                         <h:outputLabel for="item1" value="Découpe évier rectangulaire non façonnée :" />
                         <h:selectOneListbox id="item1" />
@@ -29,11 +29,9 @@
                         <h:selectOneListbox id="item4" />
 
                     </h:panelGrid>
-                </h:form>
-            </p:panel>
-            <h:form prependId="false" style="margin: 5px">
-                <h:commandButton value="Back" action="wizard-step1" />
-                <h:commandButton value="Next" action="wizard-step3" />
+                </p:panel>
+                <p:commandButton value="Back" action="wizard-step1" ajax="false" style="margin-left: 5px" />
+                <p:commandButton value="Next" action="wizard-step3" ajax="false" style="margin-left: 5px" />
             </h:form>
         </ui:define>
 

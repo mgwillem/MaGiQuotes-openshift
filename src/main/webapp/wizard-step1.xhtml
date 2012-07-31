@@ -13,26 +13,27 @@
 
         <ui:define name="content">
 
-            <p:panel header="Calcul de la matière avec les chants vus" style="margin: 5px">
-                <h:form prependId="false">
-                    <h:panelGrid columns="2">
-                        <h:outputLabel for="name" value="#{queryModelFactory.model.getQuery('Q1_CATEG_1').product.description} :" />
-                        <h:selectOneMenu id="name" >
+            <h:form prependId="false">
+                <p:panel header="Calcul de la matière avec les chants vus" style="margin: 5px">
+                    <h:panelGrid columns="3">
+                        <h:outputLabel for="name" value="#{wizardStep1.materialType.product.description} :" />
+                        <h:selectOneMenu id="name" value="#{wizardStep1.materialType.selectedProduct}">
                             <f:selectItems value="#{wizardStep1.productNameList}" />
                         </h:selectOneMenu>
+                        <p:message for="name" />
 
-                        <h:outputLabel for="number" value="#{queryModelFactory.model.getQuery('Q2_CATEG_1').product.description} :" />
-                        <h:selectOneMenu id="number" >
+                        <h:outputLabel for="number" value="#{wizardStep1.numberOfPart.product.description} :" />
+                        <h:selectOneMenu id="number" value="#{wizardStep1.numberOfPart.selectedInteger}">
                             <f:selectItems value="#{wizardStep1.range}" />
                         </h:selectOneMenu>
+                        <p:message for="number" />
 
-                        <h:outputLabel for="m2" value="#{queryModelFactory.model.getQuery('Q3_CATEG_1').product.description} :" />
-                        <h:inputText id="m2" />
+                        <h:outputLabel for="m2" value="#{wizardStep1.numberOfM2.product.description} :" />
+                        <h:inputText id="m2" value="#{wizardStep1.numberOfM2.selectedDecimal}" />
+                        <p:message for="m2" />
                     </h:panelGrid>
-                </h:form>
-            </p:panel>
-            <h:form prependId="false" style="margin: 5px">
-                <h:commandButton value="Next" action="wizard-step2" />
+                </p:panel>
+                <p:commandButton value="Next" action="#{wizardStep1.nextPage}" ajax="false" style="margin-left: 5px" />
             </h:form>
         </ui:define>
 

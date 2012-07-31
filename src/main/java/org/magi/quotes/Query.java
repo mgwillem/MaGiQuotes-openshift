@@ -1,6 +1,7 @@
 package org.magi.quotes;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,9 +12,12 @@ public class Query implements Serializable {
     private String id;
     private Query parent;
     private Product product;
-    private Object value;
     private QueryType queryType;
     private List<Query> queries;
+
+    private Integer selectedInteger;
+    private BigDecimal selectedDecimal = BigDecimal.ZERO;
+    private Product selectedProduct;
 
     public Query(String id, Product product, QueryType queryType) {
         this(id, null, product, queryType);
@@ -43,16 +47,33 @@ public class Query implements Serializable {
         return queryType;
     }
 
-    public Object getValue() {
-        return value;
-    }
-
-    public void setValue(Object value) {
-        this.value = value;
-    }
-
     public List<Query> getQueries() {
         return queries;
+    }
+
+
+    public Integer getSelectedInteger() {
+        return selectedInteger;
+    }
+
+    public void setSelectedInteger(Integer selectedInteger) {
+        this.selectedInteger = selectedInteger;
+    }
+
+    public Product getSelectedProduct() {
+        return selectedProduct;
+    }
+
+    public void setSelectedProduct(Product selectedProduct) {
+        this.selectedProduct = selectedProduct;
+    }
+
+    public BigDecimal getSelectedDecimal() {
+        return selectedDecimal;
+    }
+
+    public void setSelectedDecimal(BigDecimal selectedDecimal) {
+        this.selectedDecimal = selectedDecimal;
     }
 
     @Override

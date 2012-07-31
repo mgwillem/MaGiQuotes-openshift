@@ -18,7 +18,6 @@
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
-    <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" isTestSource="false" />
@@ -56,6 +55,7 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: stax:stax-api:1.0.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.validation:validation-api:1.0.0.GA" level="project" />
     <orderEntry type="library" name="Maven: org.primefaces:primefaces:3.2" level="project" />
+    <orderEntry type="library" name="Maven: org.primefaces.themes:pepper-grinder:1.0.6" level="project" />
   </component>
 </module>
 
