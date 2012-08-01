@@ -1,5 +1,7 @@
 package org.magi.quotes;
 
+import com.sun.jdi.IntegerType;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -11,13 +13,14 @@ import java.util.List;
 public class Query implements Serializable {
     private String id;
     private Query parent;
-    private Product product;
     private QueryType queryType;
-    private List<Query> queries;
+    private Product product;
 
     private Integer selectedInteger;
     private BigDecimal selectedDecimal = BigDecimal.ZERO;
     private Product selectedProduct;
+
+    private List<Query> queries;
 
     public Query(String id, Product product, QueryType queryType) {
         this(id, null, product, queryType);
@@ -57,6 +60,7 @@ public class Query implements Serializable {
     }
 
     public void setSelectedInteger(Integer selectedInteger) {
+        if (getValueType() != Integer.class) throw new IllegalStateException("Cannot use this method");
         this.selectedInteger = selectedInteger;
     }
 
@@ -65,6 +69,7 @@ public class Query implements Serializable {
     }
 
     public void setSelectedProduct(Product selectedProduct) {
+        if (getValueType() != Product.class) throw new IllegalStateException("Cannot use this method");
         this.selectedProduct = selectedProduct;
     }
 
@@ -73,7 +78,14 @@ public class Query implements Serializable {
     }
 
     public void setSelectedDecimal(BigDecimal selectedDecimal) {
+        if (getValueType() != BigDecimal.class) throw new IllegalStateException("Cannot use this method");
         this.selectedDecimal = selectedDecimal;
+    }
+
+    public Class getValueType() {
+        if (product.getProducts() != null) return Product.class;
+        if (product.getPriceType() == PriceType.ML || product.getPriceType() == PriceType.FF || product.getPriceType() == PriceType.PC) return Integer.class;
+        return BigDecimal.class;
     }
 
     @Override

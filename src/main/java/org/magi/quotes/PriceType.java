@@ -8,7 +8,6 @@ public enum PriceType {
     ML("Mètre courant"),
     PC("Pièce"),
     FF("Forfait"),
-    H("Heure"),
     M2("Mètre carré");
 
     private String description;

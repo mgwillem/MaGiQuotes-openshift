@@ -17,7 +17,7 @@ import java.io.Serializable;
  */
 public class QueryWizardComponentFactory implements Serializable {
 
-    public HtmlOutputText createHtmlOutputText(String name, String compId, String cssStyle) {
+    public HtmlOutputText createHtmlOutputText(Object name, String compId, String cssStyle) {
         HtmlOutputText label = new HtmlOutputText();
         label.setValue(name);
         label.setTransient(true);
@@ -27,12 +27,12 @@ public class QueryWizardComponentFactory implements Serializable {
         return label;
     }
 
-    public HtmlPanelGrid createHtmlPanelGrid(String compId, int columns, String cssStyle) {
+    public HtmlPanelGrid createHtmlPanelGrid(String compId, int columns, String cssColumnsClasses) {
         HtmlPanelGrid grid = new HtmlPanelGrid();
         grid.setColumns(columns);
-        grid.setStyle(cssStyle);
         grid.setTransient(true);
         grid.setId(compId);
+        grid.setColumnClasses(cssColumnsClasses);
 
         return grid;
     }

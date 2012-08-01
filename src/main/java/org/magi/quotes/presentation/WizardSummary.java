@@ -1,5 +1,6 @@
 package org.magi.quotes.presentation;
 
+import org.magi.quotes.Product;
 import org.magi.quotes.Query;
 import org.magi.quotes.QueryModelFactory;
 
@@ -46,7 +47,6 @@ public class WizardSummary implements Serializable {
         summary.setColumns(1);
 
         createSummaryItems(queryModelFactory.getModel().getModel());
-
     }
 
     private void createSummaryItems(List<Query> queries) {
@@ -57,13 +57,19 @@ public class WizardSummary implements Serializable {
                 createSummaryItems(query.getQueries());
             }
             else {
-                HtmlPanelGrid grid = queryWizardComponentFactory.createHtmlPanelGrid("lbl-cat-grid-" + query.getId(), 2, null);
+                HtmlPanelGrid grid = queryWizardComponentFactory.createHtmlPanelGrid("lbl-cat-grid-" + query.getId(), 2, "summary-col1, summary-col2");
 
                 grid.getChildren().add(queryWizardComponentFactory.createHtmlOutputText(query.getProduct().getDescription() + " :", "lbl-sub-cat-" + query.getId(), "margin-left: 10px"));
-                grid.getChildren().add(queryWizardComponentFactory.createHtmlOutputText("test", "lbl-sub-cat-val-" + query.getId(), "font-weight: bold"));
+                grid.getChildren().add(queryWizardComponentFactory.createHtmlOutputText(getQueryValue(query), "lbl-sub-cat-val-" + query.getId(), "font-weight: bold"));
 
                 summary.getChildren().add(grid);
             }
         }
+    }
+
+    private Object getQueryValue(Query query) {
+        if (query.getValueType() == Product.class) return query.getSelectedProduct().getDescription();
+        else if (query.getValueType() == Integer.class) return query.getSelectedInteger();
+        else return query.getSelectedDecimal();
     }
 }
