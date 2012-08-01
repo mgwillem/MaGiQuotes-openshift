@@ -1,7 +1,5 @@
 package org.magi.quotes;
 
-import com.sun.jdi.IntegerType;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;

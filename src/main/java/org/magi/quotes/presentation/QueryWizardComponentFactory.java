@@ -1,15 +1,8 @@
 package org.magi.quotes.presentation;
 
-import org.magi.quotes.Query;
-import org.primefaces.component.watermark.Watermark;
-
-import javax.faces.component.html.HtmlCommandButton;
 import javax.faces.component.html.HtmlInputText;
 import javax.faces.component.html.HtmlOutputText;
 import javax.faces.component.html.HtmlPanelGrid;
-import javax.faces.event.AbortProcessingException;
-import javax.faces.event.ValueChangeEvent;
-import javax.faces.event.ValueChangeListener;
 import java.io.Serializable;
 
 /**

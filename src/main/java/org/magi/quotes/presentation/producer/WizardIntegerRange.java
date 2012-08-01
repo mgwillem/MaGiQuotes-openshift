@@ -1,7 +1,6 @@
 package org.magi.quotes.presentation.producer;
 
 import javax.inject.Qualifier;
-import javax.swing.text.StyleContext;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 

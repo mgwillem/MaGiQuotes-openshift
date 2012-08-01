@@ -1,7 +1,6 @@
 package org.magi.quotes;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Named;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;

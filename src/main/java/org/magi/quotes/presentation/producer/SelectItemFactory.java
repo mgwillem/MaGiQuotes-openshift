@@ -1,14 +1,10 @@
 package org.magi.quotes.presentation.producer;
 
 import org.magi.quotes.Product;
-import org.magi.quotes.QueryModelFactory;
 
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 import javax.faces.model.SelectItem;
-import javax.inject.Inject;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author <a href="mailto:mgw@mmx.lu">Marc Gabriel-Willem</a>

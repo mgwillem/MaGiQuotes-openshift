@@ -1,15 +1,9 @@
 package org.magi.quotes;
 
-import org.magi.quotes.QueryModel;
-
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.SessionScoped;
-import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 /**
  * @author <a href="mailto:mgw@mmx.lu">Marc Gabriel-Willem</a>
