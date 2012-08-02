@@ -18,6 +18,10 @@ public enum Product implements Serializable {
     CAT1_Q2("Nombre de plaques à produire", BigDecimal.TEN, PriceType.PC),
     CAT1_Q3("Surface en m2", BigDecimal.TEN, PriceType.M2),
 
+    CAT1_1("Totalité des chants à vu en mètre courant"),
+    CAT1_1_Q1("Chant poli et biseauté", BigDecimal.TEN, PriceType.ML),
+    CAT1_1_Q2("Chant poli et arrondi en 1/4 de lune", BigDecimal.TEN, PriceType.ML),
+
     CAT2("Calcul des découpes"),
     CAT2_Q1("Découpe évier rectangulaire non façonnée", BigDecimal.ONE, PriceType.PC),
     CAT2_Q2("Découpe évier rectangulaire façonnée", BigDecimal.ONE, PriceType.PC),

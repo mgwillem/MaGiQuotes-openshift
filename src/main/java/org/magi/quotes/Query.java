@@ -1,6 +1,5 @@
 package org.magi.quotes;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,50 +7,33 @@ import java.util.List;
 /**
  * @author <a href="mailto:mgw@mmx.lu">Marc Gabriel-Willem</a>
  */
-public class Query implements Serializable {
+public class Query implements QueryElement {
+
     private String id;
-    private Query parent;
-    private QueryType queryType;
+    private QueryCategory parent;
     private Product product;
 
     private Integer selectedInteger;
     private BigDecimal selectedDecimal = BigDecimal.ZERO;
     private Product selectedProduct;
 
-    private List<Query> queries;
-
-    public Query(String id, Product product, QueryType queryType) {
-        this(id, null, product, queryType);
-    }
-
-    public Query(String id, Query parent, Product product, QueryType queryType) {
+    public Query(String id, QueryCategory parent, Product product) {
         this.id = id;
         this.parent = parent;
         this.product = product;
-        this.queryType = queryType;
-        this.queries = new ArrayList<Query>();
     }
 
     public String getId() {
         return id;
     }
 
-    public Query getParent() {
+    public QueryCategory getParent() {
         return parent;
     }
 
     public Product getProduct() {
         return product;
     }
-
-    public QueryType getQueryType() {
-        return queryType;
-    }
-
-    public List<Query> getQueries() {
-        return queries;
-    }
-
 
     public Integer getSelectedInteger() {
         return selectedInteger;
@@ -82,7 +64,7 @@ public class Query implements Serializable {
 
     public Class getValueType() {
         if (product.getProducts() != null) return Product.class;
-        if (product.getPriceType() == PriceType.ML || product.getPriceType() == PriceType.FF || product.getPriceType() == PriceType.PC) return Integer.class;
+        if (product.getPriceType() == PriceType.FF || product.getPriceType() == PriceType.PC) return Integer.class;
         return BigDecimal.class;
     }
 
@@ -109,8 +91,6 @@ public class Query implements Serializable {
                 "id=" + id +
                 ", parent=" + parent +
                 ", product=" + product +
-                ", queryType=" + queryType +
-                ", queries=" + queries +
                 '}';
     }
 }

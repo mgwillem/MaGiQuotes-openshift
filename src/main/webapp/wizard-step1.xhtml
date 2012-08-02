@@ -16,22 +16,34 @@
             <h:form prependId="false">
                 <p:panel header="Calcul de la matière avec les chants vus" style="margin: 5px">
                     <h:panelGrid columns="3">
-                        <h:outputLabel for="name" value="#{wizardStep1.materialType.product.description} :" />
+                        <h:outputLabel for="name" value="#{wizardStep1.materialType.product.description} :" styleClass="wizard-col1" />
                         <h:selectOneMenu id="name" value="#{wizardStep1.materialType.selectedProduct}">
                             <f:selectItems value="#{wizardStep1.productNameList}" />
                         </h:selectOneMenu>
                         <p:message for="name" />
 
-                        <h:outputLabel for="number" value="#{wizardStep1.numberOfPart.product.description} :" />
+                        <h:outputLabel for="number" value="#{wizardStep1.numberOfPart.product.description} :" styleClass="wizard-col1" />
                         <h:selectOneMenu id="number" value="#{wizardStep1.numberOfPart.selectedInteger}">
                             <f:selectItems value="#{wizardStep1.range}" />
                         </h:selectOneMenu>
                         <p:message for="number" />
 
-                        <h:outputLabel for="m2" value="#{wizardStep1.numberOfM2.product.description} :" />
+                        <h:outputLabel for="m2" value="#{wizardStep1.numberOfM2.product.description} :" styleClass="wizard-col1" />
                         <h:inputText id="m2" value="#{wizardStep1.numberOfM2.selectedDecimal}" />
                         <p:message for="m2" />
                     </h:panelGrid>
+
+                    <p:panel header="Totalité des chants à vu en mètre courant" style="col-span: 3">
+                        <h:panelGrid columns="3">
+                            <h:outputLabel for="chantPoliBiseaute" value="#{wizardStep1.chantPoliBiseaute.product.description} :" />
+                            <h:inputText id="chantPoliBiseaute" value="#{wizardStep1.chantPoliBiseaute.selectedDecimal}" />
+                            <p:message for="chantPoliBiseaute" />
+
+                            <h:outputLabel for="chantPoliArrondiQuartLune" value="#{wizardStep1.chantPoliArrondiQuartLune.product.description} :" />
+                            <h:inputText id="chantPoliArrondiQuartLune" value="#{wizardStep1.chantPoliArrondiQuartLune.selectedDecimal}" />
+                            <p:message for="chantPoliArrondiQuartLune" />
+                        </h:panelGrid>
+                    </p:panel>
                 </p:panel>
                 <p:commandButton value="Next" action="#{wizardStep1.nextPage}" ajax="false" style="margin-left: 5px" />
             </h:form>

@@ -1,8 +1,6 @@
 package org.magi.quotes.presentation;
 
-import org.magi.quotes.Product;
-import org.magi.quotes.Query;
-import org.magi.quotes.QueryModelFactory;
+import org.magi.quotes.*;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.component.html.HtmlPanelGrid;
@@ -21,7 +19,7 @@ import java.util.List;
 public class WizardSummary implements Serializable {
 
     @Inject
-    private QueryModelFactory queryModelFactory;
+    private QueryElementModelFactory queryElementModelFactory;
 
     @Inject
     private QueryWizardComponentFactory queryWizardComponentFactory;
@@ -46,21 +44,21 @@ public class WizardSummary implements Serializable {
         summary.getChildren().clear();
         summary.setColumns(1);
 
-        createSummaryItems(queryModelFactory.getModel().getModel());
+        createSummaryItems(queryElementModelFactory.getModel().getModel());
     }
 
-    private void createSummaryItems(List<Query> queries) {
-        for (Query query : queries) {
+    private void createSummaryItems(List<QueryElement> queryElements) {
+        for (QueryElement queryElement : queryElements) {
 
-            if (query.getParent() == null) {
-                summary.getChildren().add(queryWizardComponentFactory.createHtmlOutputText(query.getProduct().getDescription(), "lbl-cat-" + query.getId(), null));
-                createSummaryItems(query.getQueries());
+            if (queryElement instanceof QueryCategory) {
+                summary.getChildren().add(queryWizardComponentFactory.createHtmlOutputText(queryElement.getProduct().getDescription(), "lbl-cat-" + queryElement.getId(), null));
+                createSummaryItems(((QueryCategory)queryElement).getQueries());
             }
             else {
-                HtmlPanelGrid grid = queryWizardComponentFactory.createHtmlPanelGrid("lbl-cat-grid-" + query.getId(), 2, "summary-col1, summary-col2");
+                HtmlPanelGrid grid = queryWizardComponentFactory.createHtmlPanelGrid("lbl-cat-grid-" + queryElement.getId(), 2, "summary-col1, summary-col2");
 
-                grid.getChildren().add(queryWizardComponentFactory.createHtmlOutputText(query.getProduct().getDescription() + " :", "lbl-sub-cat-" + query.getId(), "margin-left: 10px"));
-                grid.getChildren().add(queryWizardComponentFactory.createHtmlOutputText(getQueryValue(query), "lbl-sub-cat-val-" + query.getId(), "font-weight: bold"));
+                grid.getChildren().add(queryWizardComponentFactory.createHtmlOutputText(queryElement.getProduct().getDescription() + " :", "lbl-sub-cat-" + queryElement.getId(), "margin-left: 10px"));
+                grid.getChildren().add(queryWizardComponentFactory.createHtmlOutputText(getQueryValue((Query)queryElement), "lbl-sub-cat-val-" + queryElement.getId(), "font-weight: bold"));
 
                 summary.getChildren().add(grid);
             }

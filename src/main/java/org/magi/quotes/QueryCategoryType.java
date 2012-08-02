@@ -3,9 +3,9 @@ package org.magi.quotes;
 /**
  * @author <a href="mailto:mgw@mmx.lu">Marc Gabriel-Willem</a>
  */
-public enum QueryType {
+public enum QueryCategoryType {
 
-    ONE,
-    MULTIPLE;
+    ONE_VALUE,
+    MULTIPLE_VALUE;
 
 }
