@@ -2,6 +2,7 @@ package org.magi.quotes.presentation;
 
 import org.magi.quotes.*;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.component.html.HtmlPanelGrid;
 import javax.faces.context.FacesContext;
@@ -24,6 +25,9 @@ public class WizardSummary implements Serializable {
     @Inject
     private QueryWizardComponentFactory queryWizardComponentFactory;
 
+    @EJB
+    private PriceProcessor priceProcessor;
+
     private transient HtmlPanelGrid summary;
 
     public HtmlPanelGrid getSummary() {
@@ -45,6 +49,7 @@ public class WizardSummary implements Serializable {
         summary.setColumns(1);
 
         createSummaryItems(queryElementModelFactory.getModel().getModel());
+        priceProcessor.process(queryElementModelFactory.getModel());
     }
 
     private void createSummaryItems(List<QueryElement> queryElements) {
