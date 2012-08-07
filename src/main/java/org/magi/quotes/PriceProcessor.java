@@ -1,6 +1,7 @@
 package org.magi.quotes;
 
 import javax.ejb.Stateless;
+import java.math.BigDecimal;
 
 /**
  * @author <a href="mailto:mgw@mmx.lu">Marc Gabriel-Willem</a>
@@ -8,8 +9,9 @@ import javax.ejb.Stateless;
 @Stateless
 public class PriceProcessor {
 
-    public void process(QueryElementModel model) {
+    public BigDecimal process(QueryElementModel model) {
         System.out.println("process called!");
+        return null;
     }
 
 }
