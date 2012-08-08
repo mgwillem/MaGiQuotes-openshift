@@ -54,6 +54,7 @@ public class WizardSummary implements Serializable {
         summary.getChildren().clear();
         summary.setColumns(1);
 
+        System.out.println("loading summary");
         createSummaryItems(queryElementModel.getModel());
         priceProcessor.process(queryElementModel);
     }
