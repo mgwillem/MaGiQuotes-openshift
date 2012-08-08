@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 public class PriceProcessor {
 
     public BigDecimal process(QueryElementModel model) {
-        System.out.println("process called!");
+        System.out.println(":::process called!");
         return null;
     }
 
