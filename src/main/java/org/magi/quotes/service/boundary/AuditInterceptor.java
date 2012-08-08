@@ -17,7 +17,7 @@ public class AuditInterceptor {
 
     @AroundInvoke
     public Object interceptService(InvocationContext ctx) throws Exception {
-        System.out.println(":::Intercepting:::" + ejbContext.getCallerPrincipal().getName());
+        System.out.println(":::Intercepting::: " + ejbContext.getCallerPrincipal().getName());
         return ctx.proceed();
     }
 
