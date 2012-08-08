@@ -1,6 +1,6 @@
 package org.magi.quotes.presentation.util;
 
-import org.magi.quotes.Product;
+import org.magi.quotes.service.entity.Product;
 
 import javax.enterprise.inject.Produces;
 import javax.faces.model.SelectItem;

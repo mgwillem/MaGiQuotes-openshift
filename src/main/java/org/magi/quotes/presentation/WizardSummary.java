@@ -1,7 +1,12 @@
 package org.magi.quotes.presentation;
 
-import org.magi.quotes.*;
 import org.magi.quotes.presentation.util.QueryWizardComponentFactory;
+import org.magi.quotes.service.boundary.PriceProcessor;
+import org.magi.quotes.service.boundary.QueryElement;
+import org.magi.quotes.service.boundary.QueryElementModel;
+import org.magi.quotes.service.entity.Product;
+import org.magi.quotes.service.entity.Query;
+import org.magi.quotes.service.entity.QueryCategory;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -21,7 +26,7 @@ import java.util.List;
 public class WizardSummary implements Serializable {
 
     @Inject
-    private QueryElementModelFactory queryElementModelFactory;
+    private QueryElementModel queryElementModel;
 
     @Inject
     private QueryWizardComponentFactory queryWizardComponentFactory;
@@ -49,8 +54,8 @@ public class WizardSummary implements Serializable {
         summary.getChildren().clear();
         summary.setColumns(1);
 
-        createSummaryItems(queryElementModelFactory.getModel().getModel());
-        priceProcessor.process(queryElementModelFactory.getModel());
+        createSummaryItems(queryElementModel.getModel());
+        priceProcessor.process(queryElementModel);
     }
 
     private void createSummaryItems(List<QueryElement> queryElements) {

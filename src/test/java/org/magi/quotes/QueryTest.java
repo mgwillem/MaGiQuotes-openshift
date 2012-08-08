@@ -1,9 +1,9 @@
 package org.magi.quotes;
 
 import junit.framework.Assert;
-import junit.framework.TestCase;
 import org.junit.Test;
-import org.junit.internal.runners.JUnit38ClassRunner;
+import org.magi.quotes.service.entity.Product;
+import org.magi.quotes.service.entity.Query;
 
 import java.math.BigDecimal;
 

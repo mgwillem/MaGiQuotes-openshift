@@ -1,8 +1,11 @@
-package org.magi.quotes;
+package org.magi.quotes.service.boundary;
+
+import org.magi.quotes.service.entity.Query;
+import org.magi.quotes.service.entity.QueryCategory;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Alternative;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,27 +13,26 @@ import java.util.List;
 /**
  * @author <a href="mailto:mgw@mmx.lu">Marc Gabriel-Willem</a>
  */
+@Alternative
 public class QueryElementModel implements Serializable {
 
     private List<QueryElement> model;
 
-    protected QueryElementModel() {
-
-    }
+    protected QueryElementModel() {}
 
     @PostConstruct
     protected void init() {
         model = new ArrayList<QueryElement>();
     }
 
-    public void add(Query query) {
+    void add(Query query) {
         if (query == null) throw new IllegalArgumentException("Argument cannot be null");
         if (query.getParent() == null) throw new IllegalArgumentException("Argument's parent cannot be null");
 
         query.getParent().getQueries().add(query);
     }
 
-    public void add(QueryCategory queryCategory) {
+    void add(QueryCategory queryCategory) {
         if (queryCategory == null) throw new IllegalArgumentException("Argument cannot be null");
 
         if (queryCategory.getParent() != null) queryCategory.getParent().getQueries().add(queryCategory);
@@ -47,8 +49,7 @@ public class QueryElementModel implements Serializable {
 
     private QueryElement findQueryElement(List<QueryElement> queryElements, String id) {
 
-        for (QueryElement queryElement : queryElements)
-        {
+        for (QueryElement queryElement : queryElements) {
             if (queryElement.getId().equals(id)) return queryElement;
 
             if (queryElement instanceof QueryCategory) {

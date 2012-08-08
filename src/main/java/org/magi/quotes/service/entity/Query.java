@@ -1,8 +1,8 @@
-package org.magi.quotes;
+package org.magi.quotes.service.entity;
+
+import org.magi.quotes.service.boundary.QueryElement;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author <a href="mailto:mgw@mmx.lu">Marc Gabriel-Willem</a>

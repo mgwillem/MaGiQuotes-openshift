@@ -1,4 +1,6 @@
-package org.magi.quotes;
+package org.magi.quotes.service.entity;
+
+import org.magi.quotes.service.boundary.QueryElement;
 
 import java.util.ArrayList;
 import java.util.List;

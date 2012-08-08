@@ -1,4 +1,4 @@
-package org.magi.quotes;
+package org.magi.quotes.service.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

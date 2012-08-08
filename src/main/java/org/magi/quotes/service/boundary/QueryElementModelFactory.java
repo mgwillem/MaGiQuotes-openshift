@@ -1,15 +1,18 @@
-package org.magi.quotes;
+package org.magi.quotes.service.boundary;
+
+import org.magi.quotes.service.entity.Product;
+import org.magi.quotes.service.entity.Query;
+import org.magi.quotes.service.entity.QueryCategory;
+import org.magi.quotes.service.entity.QueryCategoryType;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Named;
+import javax.enterprise.inject.Produces;
 import java.io.Serializable;
 
 /**
  * @author <a href="mailto:mgw@mmx.lu">Marc Gabriel-Willem</a>
  */
-@Named
-@SessionScoped
 public class QueryElementModelFactory implements Serializable {
 
     private QueryElementModel queryElementModel;
@@ -41,7 +44,9 @@ public class QueryElementModelFactory implements Serializable {
         return queryElementModel;
     }
 
-    public QueryElementModel getModel() {
+    @Produces
+    @SessionScoped
+    private QueryElementModel createModel() {
         return queryElementModel;
     }
 }

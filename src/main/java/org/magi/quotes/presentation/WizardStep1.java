@@ -1,9 +1,9 @@
 package org.magi.quotes.presentation;
 
-import org.magi.quotes.Query;
-import org.magi.quotes.QueryElementModelFactory;
 import org.magi.quotes.presentation.util.WizardIntegerRange;
 import org.magi.quotes.presentation.util.WizardProductName;
+import org.magi.quotes.service.boundary.QueryElementModel;
+import org.magi.quotes.service.entity.Query;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
@@ -28,7 +28,7 @@ public class WizardStep1 implements Serializable {
     private ArrayList<SelectItem> range;
 
     @Inject
-    private QueryElementModelFactory queryElementModelFactory;
+    private QueryElementModel queryElementModel;
 
     private Query materialType;
     private Query numberOfPart;
@@ -38,11 +38,11 @@ public class WizardStep1 implements Serializable {
 
     @PostConstruct
     protected void init() {
-        materialType = (Query)queryElementModelFactory.getModel().getQueryElement("Q1_CATEG_1");
-        numberOfPart = (Query)queryElementModelFactory.getModel().getQueryElement("Q2_CATEG_1");
-        numberOfM2 = (Query)queryElementModelFactory.getModel().getQueryElement("Q3_CATEG_1");
-        chantPoliBiseaute = (Query)queryElementModelFactory.getModel().getQueryElement("Q1_CATEG1_1");
-        chantPoliArrondiQuartLune = (Query)queryElementModelFactory.getModel().getQueryElement("Q2_CATEG1_1");
+        materialType = (Query)queryElementModel.getQueryElement("Q1_CATEG_1");
+        numberOfPart = (Query)queryElementModel.getQueryElement("Q2_CATEG_1");
+        numberOfM2 = (Query)queryElementModel.getQueryElement("Q3_CATEG_1");
+        chantPoliBiseaute = (Query)queryElementModel.getQueryElement("Q1_CATEG1_1");
+        chantPoliArrondiQuartLune = (Query)queryElementModel.getQueryElement("Q2_CATEG1_1");
     }
 
     public Query getMaterialType() {

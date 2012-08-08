@@ -1,8 +1,8 @@
 package org.magi.quotes.presentation;
 
-import org.magi.quotes.Query;
-import org.magi.quotes.QueryElementModelFactory;
 import org.magi.quotes.presentation.util.WizardIntegerRange;
+import org.magi.quotes.service.boundary.QueryElementModel;
+import org.magi.quotes.service.entity.Query;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
@@ -24,7 +24,7 @@ public class WizardStep2 implements Serializable {
     private ArrayList<SelectItem> range;
 
     @Inject
-    private QueryElementModelFactory queryElementModelFactory;
+    private QueryElementModel queryElementModel;
 
     private Query decoupeEvierNonFaconnee;
     private Query decoupeEvierFaconnee;
@@ -33,10 +33,10 @@ public class WizardStep2 implements Serializable {
 
     @PostConstruct
     protected void init() {
-        decoupeEvierNonFaconnee = (Query)queryElementModelFactory.getModel().getQueryElement("Q1_CATEG_2");
-        decoupeEvierFaconnee = (Query)queryElementModelFactory.getModel().getQueryElement("Q2_CATEG_2");
-        decoupePlaqueCuissonNonFaconnee = (Query)queryElementModelFactory.getModel().getQueryElement("Q3_CATEG_2");
-        decoupePlaqueCuissonFaconnee = (Query)queryElementModelFactory.getModel().getQueryElement("Q4_CATEG_2");
+        decoupeEvierNonFaconnee = (Query)queryElementModel.getQueryElement("Q1_CATEG_2");
+        decoupeEvierFaconnee = (Query)queryElementModel.getQueryElement("Q2_CATEG_2");
+        decoupePlaqueCuissonNonFaconnee = (Query)queryElementModel.getQueryElement("Q3_CATEG_2");
+        decoupePlaqueCuissonFaconnee = (Query)queryElementModel.getQueryElement("Q4_CATEG_2");
     }
 
     public Query getDecoupeEvierNonFaconnee() {

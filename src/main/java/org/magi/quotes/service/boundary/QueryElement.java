@@ -1,4 +1,6 @@
-package org.magi.quotes;
+package org.magi.quotes.service.boundary;
+
+import org.magi.quotes.service.entity.Product;
 
 import java.io.Serializable;
 

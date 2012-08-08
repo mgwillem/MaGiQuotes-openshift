@@ -1,4 +1,4 @@
-package org.magi.quotes;
+package org.magi.quotes.service.boundary;
 
 import javax.ejb.Stateless;
 import java.math.BigDecimal;
