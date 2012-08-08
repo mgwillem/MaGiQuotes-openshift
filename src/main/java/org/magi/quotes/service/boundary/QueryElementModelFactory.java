@@ -18,7 +18,7 @@ public class QueryElementModelFactory implements Serializable {
     private QueryElementModel queryElementModel;
 
     @PostConstruct
-    private QueryElementModel createQueryModel() {
+    private void createQueryModel() {
 
         queryElementModel = new QueryElementModel();
         queryElementModel.init();
@@ -40,8 +40,6 @@ public class QueryElementModelFactory implements Serializable {
         queryElementModel.add(new Query("Q2_CATEG_2", queryCategory2, Product.CAT2_Q2));
         queryElementModel.add(new Query("Q3_CATEG_2", queryCategory2, Product.CAT2_Q3));
         queryElementModel.add(new Query("Q4_CATEG_2", queryCategory2, Product.CAT2_Q4));
-
-        return queryElementModel;
     }
 
     @Produces
