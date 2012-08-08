@@ -2,7 +2,7 @@ package org.magi.quotes.presentation;
 
 import org.magi.quotes.Query;
 import org.magi.quotes.QueryElementModelFactory;
-import org.magi.quotes.presentation.producer.WizardIntegerRange;
+import org.magi.quotes.presentation.util.WizardIntegerRange;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;

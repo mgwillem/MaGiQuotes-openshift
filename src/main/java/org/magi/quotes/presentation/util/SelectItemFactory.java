@@ -1,4 +1,4 @@
-package org.magi.quotes.presentation.producer;
+package org.magi.quotes.presentation.util;
 
 import org.magi.quotes.Product;
 

@@ -1,6 +1,7 @@
 package org.magi.quotes.presentation;
 
 import org.magi.quotes.*;
+import org.magi.quotes.presentation.util.QueryWizardComponentFactory;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;

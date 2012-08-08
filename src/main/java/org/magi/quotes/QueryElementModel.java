@@ -14,6 +14,10 @@ public class QueryElementModel implements Serializable {
 
     private List<QueryElement> model;
 
+    protected QueryElementModel() {
+
+    }
+
     @PostConstruct
     protected void init() {
         model = new ArrayList<QueryElement>();

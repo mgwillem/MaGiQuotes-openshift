@@ -1,4 +1,4 @@
-package org.magi.quotes.presentation;
+package org.magi.quotes.presentation.util;
 
 import javax.faces.component.html.HtmlInputText;
 import javax.faces.component.html.HtmlOutputText;
