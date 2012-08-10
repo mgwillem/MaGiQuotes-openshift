@@ -17,12 +17,12 @@ public class Audit {
 
     private String principalName;
 
-    private Timestamp createdDate;
+    private Timestamp creationDate;
 
     public static Audit build(String principalName) {
         Audit audit = new Audit();
         audit.principalName = principalName;
-        audit.createdDate = new Timestamp(new Date().getTime());
+        audit.creationDate = new Timestamp(new Date().getTime());
         return audit;
     }
 
@@ -34,7 +34,7 @@ public class Audit {
         return principalName;
     }
 
-    public Timestamp getCreatedDate() {
-        return createdDate;
+    public Timestamp getCreationDate() {
+        return creationDate;
     }
 }

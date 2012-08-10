@@ -16,6 +16,7 @@ import javax.faces.event.PhaseId;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -33,6 +34,8 @@ public class WizardSummary implements Serializable {
 
     @EJB
     private PriceProcessor priceProcessor;
+
+    private BigDecimal price;
 
     private transient HtmlPanelGrid summary;
 
@@ -56,7 +59,7 @@ public class WizardSummary implements Serializable {
 
         System.out.println("loading summary");
         createSummaryItems(queryElementModel.getModel());
-        priceProcessor.process(queryElementModel);
+        price = priceProcessor.process(queryElementModel);
     }
 
     private void createSummaryItems(List<QueryElement> queryElements) {
@@ -81,5 +84,9 @@ public class WizardSummary implements Serializable {
         if (query.getValueType() == Product.class) return query.getSelectedProduct().getDescription();
         else if (query.getValueType() == Integer.class) return query.getSelectedInteger();
         else return query.getSelectedDecimal();
+    }
+
+    public BigDecimal getPrice() {
+        return price;
     }
 }

@@ -17,7 +17,10 @@
                 <p:panel header="Résumé" style="margin: 5px">
                     <h:panelGrid binding="#{wizardSummary.summary}" />
                 </p:panel>
-                <h:commandButton value="Restart" action="wizard-step1" style="margin-left: 5px" />
+                <p:panel header="Estimation de prix" style="margin: 5px">
+                    <h:outputText value="#{wizardSummary.price}" />
+                </p:panel>
+                <p:commandButton value="Restart" action="wizard-step1" ajax="false" style="margin-left: 5px" />
             </h:form>
         </ui:define>
 
