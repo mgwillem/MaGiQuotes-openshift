@@ -1,7 +1,6 @@
 package org.magi.quotes.service.boundary;
 
 import javax.ejb.Stateless;
-import javax.interceptor.Interceptor;
 import javax.interceptor.Interceptors;
 import java.math.BigDecimal;
 
