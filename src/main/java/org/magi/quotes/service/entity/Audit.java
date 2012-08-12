@@ -19,10 +19,13 @@ public class Audit {
 
     private Timestamp creationDate;
 
-    public static Audit build(String principalName) {
+    private String description;
+
+    public static Audit build(String principalName, String description) {
         Audit audit = new Audit();
         audit.principalName = principalName;
         audit.creationDate = new Timestamp(new Date().getTime());
+        audit.description = description;
         return audit;
     }
 
@@ -36,5 +39,9 @@ public class Audit {
 
     public Timestamp getCreationDate() {
         return creationDate;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

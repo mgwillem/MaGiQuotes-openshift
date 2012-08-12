@@ -13,7 +13,7 @@ import java.util.List;
  * @author <a href="mailto:mgw@mmx.lu">Marc Gabriel-Willem</a>
  */
 @Stateless
-@Interceptors({AuditInterceptor.class})
+@Interceptors({PriceProcessorInterceptor.class})
 public class PriceProcessor {
 
     public BigDecimal process(QueryElementModel model) {
