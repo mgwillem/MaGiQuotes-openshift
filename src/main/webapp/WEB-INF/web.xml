@@ -20,8 +20,43 @@
             <url-pattern>/health</url-pattern>
         </servlet-mapping>
 
+        <security-role>
+            <description>Normal user to the My application.</description>
+            <role-name>USER</role-name>
+        </security-role>
+
+        <security-constraint>
+            <web-resource-collection>
+                <web-resource-name>Restricted access</web-resource-name>
+                <url-pattern>/*</url-pattern>
+                <http-method>DELETE</http-method>
+                <http-method>GET</http-method>
+                <http-method>POST</http-method>
+                <http-method>PUT</http-method>
+                <http-method>HEAD</http-method>
+                <http-method>TRACE</http-method>
+                <http-method>OPTIONS</http-method>
+            </web-resource-collection>
+            <auth-constraint>
+                <role-name>USER</role-name>
+            </auth-constraint>
+            <user-data-constraint>
+                <transport-guarantee>NONE</transport-guarantee>
+            </user-data-constraint>
+        </security-constraint>
+
+        <!-- Configure login to be HTTP Basic -->
+        <login-config>
+            <auth-method>BASIC</auth-method>
+            <realm-name>RealmUsersRoles</realm-name>
+        </login-config>
+
         <welcome-file-list>
             <welcome-file>faces/wizard-step1.xhtml</welcome-file>
         </welcome-file-list>
+
+        <session-config>
+            <session-timeout>5</session-timeout>
+        </session-config>
 </web-app>
 
