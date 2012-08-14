@@ -1,8 +1,6 @@
 package org.magi.quotes.service.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -10,7 +8,14 @@ import java.util.Date;
  * @author <a href="mailto:mgw@mmx.lu">Marc Gabriel-Willem</a>
  */
 @Entity
+@NamedQueries({
+        @NamedQuery(name = Audit.findAll, query = "SELECT a FROM Audit a")
+})
 public class Audit {
+
+    public static final String PREFIX = "org.magi.quotes.service.entity.Audit.";
+    public static final String findAll = PREFIX + "findAll";
+
 
     @Id @GeneratedValue
     private long id;
@@ -43,5 +48,15 @@ public class Audit {
 
     public String getDescription() {
         return description;
+    }
+
+    @Override
+    public String toString() {
+        return "Audit{" +
+                "id=" + id +
+                ", principalName='" + principalName + '\'' +
+                ", creationDate=" + creationDate +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

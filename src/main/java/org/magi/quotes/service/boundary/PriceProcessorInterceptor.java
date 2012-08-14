@@ -6,6 +6,7 @@ import org.magi.quotes.service.entity.Audit;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.ejb.EJBContext;
+import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.InvocationContext;
 import java.math.BigDecimal;
@@ -15,19 +16,16 @@ import java.math.BigDecimal;
  */
 public class PriceProcessorInterceptor {
 
-    @Resource
-    private EJBContext ejbContext;
-
-    @EJB
-    private CrudService<Audit> crudServiceAudit;
+    @Inject
+    private AuditService auditService;
 
     @AroundInvoke
     public Object interceptService(InvocationContext ctx) throws Exception {
-        System.out.println(":::Intercepting-db:::" + ejbContext.getCallerPrincipal().getName());
+        System.out.println(":::Intercepting-db");
 
-        crudServiceAudit.create(Audit.build(ejbContext.getCallerPrincipal().getName(), "(PRICE) request..."));
+        auditService.create("(PRICE) request...");
         BigDecimal price = (BigDecimal)ctx.proceed();
-        crudServiceAudit.create(Audit.build(ejbContext.getCallerPrincipal().getName(), "(PRICE) provided: " + price));
+        auditService.create("(PRICE) provided: " + price);
 
         return price;
     }

@@ -17,13 +17,17 @@ import java.util.List;
  * @author <a href="mailto:mgw@mmx.lu">Marc Gabriel-Willem</a>
  */
 @Stateless
-@Interceptors({PriceProcessorInterceptor.class})
 public class PriceProcessor {
 
     @Resource
     private EJBContext context;
 
+    public String sayHello() {
+        return "hello from ejb" + this.hashCode();
+    }
+
     @RolesAllowed({"USER"})
+    @Interceptors({PriceProcessorInterceptor.class})
     public BigDecimal process(QueryElementModel model) {
         System.out.println(":::process called!" + context.isCallerInRole("USER"));
 

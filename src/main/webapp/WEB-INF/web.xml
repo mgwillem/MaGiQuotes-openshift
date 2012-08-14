@@ -52,11 +52,37 @@
         </login-config>
 
         <welcome-file-list>
-            <welcome-file>faces/wizard-step1.xhtml</welcome-file>
+            <welcome-file>faces/client/wizard-step1.xhtml</welcome-file>
         </welcome-file-list>
 
         <session-config>
             <session-timeout>5</session-timeout>
         </session-config>
+
+
+    <context-param>
+        <description>Vaadin production mode</description>
+        <param-name>productionMode</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>My Vaadin App</servlet-name>
+        <servlet-class>org.magi.quotes.presentation.admin.VaadinAppServlet</servlet-class>
+        <init-param>
+            <description>Vaadin root</description>
+            <param-name>root</param-name>
+            <param-value>org.magi.quotes.presentation.admin.MyApplicationRoot</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>My Vaadin App</servlet-name>
+        <url-pattern>/admin/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>My Vaadin App</servlet-name>
+        <url-pattern>/VAADIN/*</url-pattern>
+    </servlet-mapping>
+
 </web-app>
 
