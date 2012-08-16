@@ -44,9 +44,6 @@ public class VaadinAppServlet extends AbstractApplicationServlet {
             public void close() {
                 System.out.println("application:::close");
                 super.close();
-                WebApplicationContext webCtx = (WebApplicationContext) getContext();
-                HttpSession session = webCtx.getHttpSession();
-                session.invalidate();
             }
 
         };

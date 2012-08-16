@@ -5,7 +5,6 @@ import org.magi.quotes.service.entity.Query;
 import org.magi.quotes.service.entity.QueryCategory;
 
 import javax.annotation.Resource;
-import javax.annotation.security.DeclareRoles;
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJBContext;
 import javax.ejb.Stateless;

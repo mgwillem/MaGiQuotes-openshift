@@ -1,11 +1,5 @@
 package org.magi.quotes.service.boundary;
 
-import org.magi.quotes.service.control.CrudService;
-import org.magi.quotes.service.entity.Audit;
-
-import javax.annotation.Resource;
-import javax.ejb.EJB;
-import javax.ejb.EJBContext;
 import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.InvocationContext;
