@@ -63,6 +63,7 @@ public class PriceComponent extends AbstractComponent {
 
                 BeanItem<Product> item = new BeanItem<Product>((Product)table.getValue());
                 fieldGroup.setItemDataSource(item);
+                fieldGroup.getField("description").setReadOnly(true);
             }
         });
         updateTableData();
@@ -100,7 +101,11 @@ public class PriceComponent extends AbstractComponent {
             public void buttonClick(Button.ClickEvent clickEvent) {
                 try {
                     fieldGroup.commit();
-                    System.out.println("save:" + ((BeanItem<Product>) fieldGroup.getItemDataSource()).getBean().getPrice());
+
+                    Product product = ((BeanItem<Product>) fieldGroup.getItemDataSource()).getBean();
+                    System.out.println("save:" + product.getPrice());
+                    productService.update(product, product.getPrice());
+
                     updateTableData();
                 } catch (Exception e) {
                     e.printStackTrace();

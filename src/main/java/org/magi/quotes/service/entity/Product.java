@@ -30,17 +30,8 @@ public enum Product implements Serializable {
 
     private String description;
     private BigDecimal price;
-    private Integer price2;
     private PriceType priceType;
     private Product[] products;
-
-    public Integer getPrice2() {
-        return price2;
-    }
-
-    public void setPrice2(Integer price2) {
-        this.price2 = price2;
-    }
 
     private Product(String description) {
         this(description, null, null);

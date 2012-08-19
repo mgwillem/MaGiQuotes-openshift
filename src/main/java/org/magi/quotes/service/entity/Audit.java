@@ -16,7 +16,6 @@ public class Audit {
     public static final String PREFIX = "org.magi.quotes.service.entity.Audit.";
     public static final String findAll = PREFIX + "findAll";
 
-
     @Id @GeneratedValue
     private long id;
 

@@ -1,5 +1,6 @@
 package org.magi.quotes.service.boundary;
 
+import org.magi.quotes.service.control.PriceProcessorInterceptor;
 import org.magi.quotes.service.entity.Product;
 import org.magi.quotes.service.entity.Query;
 import org.magi.quotes.service.entity.QueryCategory;

@@ -1,4 +1,6 @@
-package org.magi.quotes.service.boundary;
+package org.magi.quotes.service.control;
+
+import org.magi.quotes.service.boundary.AuditService;
 
 import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
