@@ -4,14 +4,12 @@ import com.vaadin.Application;
 import com.vaadin.RootRequiresMoreInformationException;
 import com.vaadin.terminal.WrappedRequest;
 import com.vaadin.terminal.gwt.server.AbstractApplicationServlet;
-import com.vaadin.terminal.gwt.server.WebApplicationContext;
 import com.vaadin.ui.Root;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 /**
  * @author <a href="mailto:mgw@mmx.lu">Marc Gabriel-Willem</a>
@@ -19,7 +17,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet(urlPatterns = "/admin/*")
 public class VaadinAppServlet extends AbstractApplicationServlet {
     @Inject
-    MyApplicationRoot root;
+    AdminApplicationRoot root;
 
     @Override
     protected Class<? extends Application> getApplicationClass()
@@ -39,13 +37,6 @@ public class VaadinAppServlet extends AbstractApplicationServlet {
             protected String getRootClassName(WrappedRequest request) {
                 return root.getClass().getSimpleName();
             }
-
-            @Override
-            public void close() {
-                System.out.println("application:::close");
-                super.close();
-            }
-
         };
         root.setApplication(application);
         return application;

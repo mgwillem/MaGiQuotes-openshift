@@ -17,9 +17,8 @@ public class PriceProcessorInterceptor {
 
     @AroundInvoke
     public Object interceptService(InvocationContext ctx) throws Exception {
-        System.out.println(":::Intercepting-db");
 
-        auditService.create("(PRICE) request...");
+        auditService.create("(PRICE) requesting");
         BigDecimal price = (BigDecimal)ctx.proceed();
         auditService.create("(PRICE) provided: " + price);
 

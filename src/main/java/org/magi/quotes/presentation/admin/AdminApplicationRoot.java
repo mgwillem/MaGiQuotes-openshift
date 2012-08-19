@@ -12,7 +12,7 @@ import javax.enterprise.context.SessionScoped;
  * @author <a href="mailto:mgw@mmx.lu">Marc Gabriel-Willem</a>
  */
 @SessionScoped
-public class MyApplicationRoot extends Root {
+public class AdminApplicationRoot extends Root {
 
     @EJB
     private AuditService auditService;

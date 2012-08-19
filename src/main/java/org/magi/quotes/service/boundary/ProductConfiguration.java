@@ -1,5 +1,6 @@
 package org.magi.quotes.service.boundary;
 
+import org.apache.log4j.Logger;
 import org.magi.quotes.service.control.CustomProductConfigurationManager;
 import org.magi.quotes.service.entity.Product;
 
@@ -23,6 +24,8 @@ import static javax.ejb.LockType.WRITE;
 @Lock(READ)
 public class ProductConfiguration {
 
+    private static final Logger logger = Logger.getLogger(ProductConfiguration.class);
+
     @Inject
     private CustomProductConfigurationManager customProductConfigurationManager;
 
@@ -30,12 +33,12 @@ public class ProductConfiguration {
     @Lock(WRITE)
     protected void mergeWithCustomConfigurationProvider() {
 
-        System.out.println(":::mergeWithCustomConfigurationProvider");
+        logger.info(":::mergeWithCustomConfigurationProvider");
         Map<Product, BigDecimal> customConfigurationMap = customProductConfigurationManager.getConfiguration();
         for (Product product : customConfigurationMap.keySet()) {
 
             BigDecimal newPrice = customConfigurationMap.get(product);
-            System.out.println(":::mergeWithCustomConfigurationProvider::: " + product.name() + " old price: " + product.getPrice() + " new price: " + newPrice);
+            logger.info(":::mergeWithCustomConfigurationProvider::: " + product.name() + " old price: " + product.getPrice() + " new price: " + newPrice);
 
             product.setPrice(newPrice);
         }

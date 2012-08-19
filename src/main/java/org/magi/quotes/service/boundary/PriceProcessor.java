@@ -1,5 +1,6 @@
 package org.magi.quotes.service.boundary;
 
+import org.apache.log4j.Logger;
 import org.magi.quotes.service.control.PriceProcessorInterceptor;
 import org.magi.quotes.service.entity.Product;
 import org.magi.quotes.service.entity.Query;
@@ -19,23 +20,21 @@ import java.util.List;
 @Stateless
 public class PriceProcessor {
 
+    private static final Logger logger = Logger.getLogger(PriceProcessor.class);
+
     @Resource
     private EJBContext context;
-
-    public String sayHello() {
-        return "hello from ejb" + this.hashCode();
-    }
 
     @RolesAllowed({"USER"})
     @Interceptors({PriceProcessorInterceptor.class})
     public BigDecimal process(QueryElementModel model) {
-        System.out.println(":::process called!" + context.isCallerInRole("USER"));
+        logger.info(":::process called:::" + context.isCallerInRole("USER"));
 
-        System.out.println("selected product price: " + findQuery(model, "Q1_CATEG_1").getSelectedProduct().getPrice());
-        System.out.println("selected product m2: " + findQuery(model, "Q3_CATEG_1").getSelectedDecimal());
+        logger.info("selected product price: " + findQuery(model, "Q1_CATEG_1").getSelectedProduct().getPrice());
+        logger.info("selected product m2: " + findQuery(model, "Q3_CATEG_1").getSelectedDecimal());
         BigDecimal price = findQuery(model, "Q1_CATEG_1").getSelectedProduct().getPrice().multiply(findQuery(model, "Q3_CATEG_1").getSelectedDecimal());
 
-        System.out.println(":::price:::" + price);
+        logger.info(":::price:::" + price);
 
         return price;
     }

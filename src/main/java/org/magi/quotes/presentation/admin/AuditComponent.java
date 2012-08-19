@@ -16,7 +16,6 @@ public class AuditComponent extends AbstractComponent {
 
     public AuditComponent(AuditService auditService) {
         this.auditService = auditService;
-
     }
 
     public Component buildPanel() {
