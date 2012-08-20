@@ -1,7 +1,9 @@
 package org.magi.quotes.presentation.admin;
 
+import com.vaadin.terminal.ExternalResource;
 import com.vaadin.terminal.WrappedRequest;
 import com.vaadin.ui.*;
+import com.vaadin.ui.themes.BaseTheme;
 import org.magi.quotes.service.boundary.AuditService;
 import org.magi.quotes.service.boundary.ProductService;
 
@@ -27,9 +29,28 @@ public class AdminApplicationRoot extends Root {
         VerticalLayout mainLayout = new VerticalLayout();
         mainLayout.setSpacing(true);
         mainLayout.setMargin(true);
-        mainLayout.addComponent(new Label("Quotes - Administration module"));
+        mainLayout.addComponent(createHeader());
         mainLayout.addComponent(createTabSheet());
         setContent(mainLayout);
+    }
+
+    private Component createHeader() {
+
+        Button closeButton = new Button("(Logout)");
+        closeButton.setStyleName(BaseTheme.BUTTON_LINK);
+        closeButton.addListener(new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent event) {
+                getApplication().close();
+            }
+        });
+
+        HorizontalLayout horizontalLayout = new HorizontalLayout();
+        horizontalLayout.setSpacing(true);
+        horizontalLayout.addComponent(new Label("Quotes - Administration module"));
+        horizontalLayout.addComponent(closeButton);
+
+        return horizontalLayout;
     }
 
     private TabSheet createTabSheet() {

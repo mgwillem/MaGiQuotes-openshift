@@ -14,10 +14,12 @@
     
     <h:body>
         <f:view contentType="text/html">
-            <p:panel style="margin: 5px">
-                <h:outputLabel value="(Message publicitaire - réduction, etc.)" />
-            </p:panel>
-
+            <h:form>
+                <p:panel style="margin: 5px">
+                    <h:outputLabel value="(Message publicitaire - réduction, etc.)" style="margin-right: 10px"/>
+                    <p:commandLink value="(Logout)" action="#{logoutBean.logout}" ajax="false" />
+                </p:panel>
+            </h:form>
             <ui:insert name="content">Content</ui:insert>
         </f:view>
     </h:body>

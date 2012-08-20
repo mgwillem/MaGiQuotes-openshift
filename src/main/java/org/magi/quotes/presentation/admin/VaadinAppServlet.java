@@ -4,12 +4,14 @@ import com.vaadin.Application;
 import com.vaadin.RootRequiresMoreInformationException;
 import com.vaadin.terminal.WrappedRequest;
 import com.vaadin.terminal.gwt.server.AbstractApplicationServlet;
+import com.vaadin.terminal.gwt.server.WebApplicationContext;
 import com.vaadin.ui.Root;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * @author <a href="mailto:mgw@mmx.lu">Marc Gabriel-Willem</a>
@@ -36,6 +38,18 @@ public class VaadinAppServlet extends AbstractApplicationServlet {
 
             protected String getRootClassName(WrappedRequest request) {
                 return root.getClass().getSimpleName();
+            }
+
+            public String getLogoutURL() {
+                return "logout-admin.html";
+            }
+
+            @Override
+            public void close() {
+                super.close();
+                WebApplicationContext webCtx = (WebApplicationContext)  getContext();
+                HttpSession session = webCtx.getHttpSession();
+                session.invalidate();
             }
         };
         root.setApplication(application);
