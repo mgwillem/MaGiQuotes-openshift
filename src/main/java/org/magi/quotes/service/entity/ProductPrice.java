@@ -21,6 +21,14 @@ public class ProductPrice {
 
     private BigDecimal defaultPrice;
 
+    public ProductPrice() {
+    }
+
+    public ProductPrice(Product product, BigDecimal defaultPrice) {
+        this.product = product;
+        this.defaultPrice = defaultPrice;
+    }
+
     public Product getProduct() {
         return product;
     }
