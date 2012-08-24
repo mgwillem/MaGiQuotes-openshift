@@ -1,8 +1,8 @@
 MaGiQuotes-openshift: Application for distributors
 ==================================================
-Technologies: *Java EE 6* (CDI, EJB3.1), JSF2 (Primefaces), Vaadin
+Technologies: *Java EE 6* (CDI, EJB3.1), *JSF2* (Primefaces), *Vaadin*
 
-Test technologies: JUnit, Mockito, Arquillian, Arquillian Drone, Selenium
+Test technologies: *JUnit*, *Mockito*, *Arquillian*, *Arquillian Drone*, *Selenium*
 
 What is it ?
 ============
