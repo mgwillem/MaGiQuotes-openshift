@@ -13,7 +13,7 @@
 
         <ui:define name="content">
 
-            <h:form prependId="false">
+            <h:form id="wizardForm" prependId="false">
                 <p:panel header="-Calcul de la matière avec les chants vus-" style="margin: 5px">
                     <h:panelGrid columns="3">
                         <h:outputLabel for="name" value="#{wizardStep1.materialType.product.description} :" styleClass="wizard-col1" />
@@ -45,7 +45,7 @@
                         </h:panelGrid>
                     </p:panel>
                 </p:panel>
-                <p:commandButton value="Next" action="#{wizardStep1.nextPage}" ajax="false" style="margin-left: 5px" />
+                <p:commandButton id="nextBtn" value="Next" action="#{wizardStep1.nextPage}" ajax="false" style="margin-left: 5px" />
             </h:form>
         </ui:define>
 

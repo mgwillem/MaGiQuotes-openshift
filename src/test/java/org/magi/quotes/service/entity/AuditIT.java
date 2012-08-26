@@ -20,7 +20,7 @@ import javax.transaction.UserTransaction;
  * @author <a href="mailto:mgw@mmx.lu">Marc Gabriel-Willem</a>
  */
 @RunWith(Arquillian.class)
-public class AuditTest {
+public class AuditIT {
 
     @Deployment
     public static Archive<?> createDeployment() {

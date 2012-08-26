@@ -24,7 +24,7 @@ import java.util.List;
  * @author <a href="mailto:mgw@mmx.lu">Marc Gabriel-Willem</a>
  */
 @RunWith(Arquillian.class)
-public class ProductPriceTest {
+public class ProductPriceIT {
 
     @Deployment
     public static Archive<?> createDeployment() {

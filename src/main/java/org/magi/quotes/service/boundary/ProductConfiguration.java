@@ -9,7 +9,6 @@ import javax.ejb.Lock;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.inject.Inject;
-
 import java.math.BigDecimal;
 import java.util.Map;
 

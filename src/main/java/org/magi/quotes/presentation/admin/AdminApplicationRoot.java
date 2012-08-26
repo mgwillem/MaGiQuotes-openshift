@@ -1,6 +1,5 @@
 package org.magi.quotes.presentation.admin;
 
-import com.vaadin.terminal.ExternalResource;
 import com.vaadin.terminal.WrappedRequest;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.BaseTheme;

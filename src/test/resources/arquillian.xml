@@ -4,17 +4,17 @@
             xsi:schemaLocation="
         http://jboss.org/schema/arquillian
         http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
-    <container qualifier="glassfish-embedded">
+    <container qualifier="glassfish-embedded" default="true">
         <configuration>
             <property name="resourcesXml">
                 src/test/resources-glassfish-embedded/glassfish-resources.xml
             </property>
         </configuration>
     </container>
-    <container qualifier="jbossas-managed" default="true">
+    <container qualifier="jbossas-managed">
         <configuration>
             <property name="jbossHome">/Users/mgw/work/server/jboss-as-7.1.1.Final</property>
-            <property name="javaVmArguments">-Djava.nio.channels.spi.SelectorProvider=sun.nio.ch.KQueueSelectorProvider</property>
+            <property name="javaVmArguments">-Xmx512m -XX:MaxPermSize=128m -Xverify:none -XX:+UseFastAccessorMethods -Djava.nio.channels.spi.SelectorProvider=sun.nio.ch.KQueueSelectorProvider</property>
         </configuration>
     </container>
 </arquillian>
