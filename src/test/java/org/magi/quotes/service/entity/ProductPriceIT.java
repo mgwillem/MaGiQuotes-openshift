@@ -4,13 +4,12 @@ import junit.framework.Assert;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.magi.quotes.Deployments;
 import org.magi.quotes.service.boundary.QueryElement;
 
 import javax.inject.Inject;
@@ -26,16 +25,6 @@ import java.util.List;
 @RunWith(Arquillian.class)
 public class ProductPriceIT {
 
-    @Deployment
-    public static Archive<?> createDeployment() {
-        return ShrinkWrap.create(WebArchive.class, "test.war")
-                .addClass(QueryElement.class)
-                .addPackage(ProductPrice.class.getPackage())
-                .addAsResource("test-persistence.xml", "META-INF/persistence.xml")
-                .addAsWebInfResource("jbossas-ds.xml")
-                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
-    }
-
     @PersistenceContext
     private EntityManager em;
 
@@ -46,6 +35,15 @@ public class ProductPriceIT {
             new ProductPrice(Product.CAT1_1_Q1, BigDecimal.ONE),
             new ProductPrice(Product.CAT1_1_Q2, BigDecimal.TEN)
     };
+
+    @Deployment
+    public static Archive<?> createDeployment() {
+        WebArchive archive = Deployments.createBusinessArchive();
+        archive.addClass(QueryElement.class);
+        archive.addPackage(ProductPrice.class.getPackage());
+
+        return archive;
+    }
 
     @Before
     public void preparePersistenceTest() throws Exception {
